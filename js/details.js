@@ -141,13 +141,9 @@ ${selectedCar.color}
 </div>
 
 <button
-
 class="btn btn-primary btn-lg mt-4"
-
-onclick="addToCart()">
-
+onclick="goToBilling(${carId})">
 Billing Details
-
 </button>
 
 </div>
@@ -286,3 +282,7 @@ if(e.key==="ArrowLeft"){
 }
 
 });
+
+function goToBilling(carId) {
+    window.location.href = `Billing.html?id=${carId}`;
+}
