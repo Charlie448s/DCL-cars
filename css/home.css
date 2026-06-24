@@ -1,71 +1,80 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.hero{
+.hero {
 
-height:50vh;
+    height: 50vh;
 
-background:url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7")
-center center/cover;
+    background: url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7") center center/cover;
 
-display:flex;
-justify-content:center;
-align-items:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-color:white;
-text-shadow:2px 2px 10px black;
+    color: white;
+    text-shadow: 2px 2px 10px black;
+    
 }
 
 
-.hero h1{
-font-size:3rem;
-font-weight:bold;
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
 }
 
-.card img{
+.card img {
 
-height:220px;
-object-fit:cover;
-
-}
-
-.card{
-
-transition:.3s;
-cursor:pointer;
-}
-
-.card:hover{
-
-transform:translateY(-8px);
+    height: 220px;
+    object-fit: cover;
 
 }
 
-#searchInput{
-    width:100%;
-    padding:12px 20px;
-    border:2px solid #ddd;
-    border-radius:30px;
-    font-size:16px;
-    outline:none;
-    transition:all 0.4s ease;
-    box-shadow:0 0 0 rgba(37,99,235,0);
+.card {
+
+    transition: .3s;
+    cursor: pointer;
 }
 
-#searchInput:focus{
-    border-color:#2563eb;
-    box-shadow:0 0 15px rgba(37,99,235,0.5);
-    transform:scale(1.03);
+.card:hover {
+
+    transform: translateY(-8px);
+
+}
+.cars {
+    background-image: url("https://izmirautocar.com/wp-content/uploads/2025/04/Car-Dealer.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+   /* margin-top: 0px; */
 }
 
-#searchInput::placeholder{
-    transition:all 0.3s ease;
+
+#searchInput {
+    width: 100%;
+    padding: 12px 20px;
+    border: 2px solid #ddd;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 0 rgba(37, 99, 235, 0);
 }
 
-#searchInput:focus::placeholder{
-    opacity:0.5;
-    transform:translateX(10px);
+#searchInput:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
+    transform: scale(1.03);
+}
+
+#searchInput::placeholder {
+    transition: all 0.3s ease;
+}
+
+#searchInput:focus::placeholder {
+    opacity: 0.5;
+    transform: translateX(10px);
 }
