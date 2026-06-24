@@ -48,6 +48,7 @@ const cars = [
         "https://images.unsplash.com/photo-1503376780353-7e6692767b70",
         "https://images.unsplash.com/photo-1549399542-7e3f8b79c341",
         "https://images.unsplash.com/photo-1555215695-3004980ad54e",
+        "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7",
         "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7"
     ]
 },
