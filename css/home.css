@@ -1,209 +1,397 @@
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
-body,
-html{
-    margin:0;
-    padding:0;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-.hero h1,
-.hero p{
-    margin:0;
-}
-.hero {
-  
-    height: 50vh;
-
-    background: url("https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3preGdoMW92aTllaXJvZGxiaW1mM3Y3eWdwajlucTdoeTNrZHY5eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rafhZNx2nTwp7CIN9z/giphy.gif") center center/cover;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    color: white;
-    text-shadow: 2px 2px 10px black;
-    
-}
-
-
-.hero h1 {
-    font-size: 3rem;
-    font-weight: bold;
-}
-
-.card img {
-
-    height: 220px;
-    object-fit: cover;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  transition: all 0.3s ease-in;
-}
-
-.card {
-    backdrop-filter: blur(10px);
-    background: rgba(157, 149, 241, 0.3);
-    transition: .3s;
-    cursor: pointer;
-    border-radius: 20px;
-     transition: all 0.3s ease-in;
-}
-@keyframes hoverBounce {
-  0% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-20px);
-  }
-  60% {
-    transform: translateY(-16px);
-  }
-  80% {
-    transform: translateY(-20px);
-  }
-  100% {
-    transform: translateY(-8px);
-  }
-}
-.card:hover {
-
-    transform: translateY(-8px);
-    backdrop-filter: blur(20px);
-    background: rgba(255, 255, 255, 0.6);
-    animation: hoverBounce 0.6s ease forwards;
-
-}
-.card:hover img{
-      transform:scaleY(1.06);
-}
-
-/* .cars {
-    background-image: url("https://izmirautocar.com/wp-content/uploads/2025/04/Car-Dealer.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
  
-} */
- .cars{
-    position:relative;
-    overflow:hidden;
-    min-height:100vh;
+:root {
+  --amber: #F5A623;
+  --amber-dim: #c4831a;
+  --bg: #0D0D0F;
+  --surface: #16161A;
+  --surface2: #1E1E24;
+  --glass: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text: #F0EEE8;
+  --text-muted: #8A8880;
+  --green: #5DCAA5;
+}
+ 
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+ 
+/* ── Navbar ── */
+nav {
+  background: rgba(13, 13, 15, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+ 
+.brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  color: var(--amber);
+  text-decoration: none;
+}
+ 
+.nav-links {
+  display: flex;
+  gap: 0.25rem;
+}
+ 
+.nav-links button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+ 
+.nav-links button:hover,
+.nav-links button.active {
+  background: var(--glass);
+  color: var(--text);
+}
+ 
+.nav-links button.active {
+  color: var(--amber);
+}
+ 
+.sell-btn {
+  background: var(--amber);
+  color: #0D0D0F;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-left: 1rem;
+  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
 }
 
-.cars::before{
-    content:"";
-
-    position:absolute;
-    top:0;
-    left:0;
-
-    width:100%;
-    height:100%;
-
-    background-image:url("https://izmirautocar.com/wp-content/uploads/2025/04/Car-Dealer.jpg");
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-    background-repeat:no-repeat;
-
-    filter:blur(4px);
-
-    transform:scale(1.1);
-
-    z-index:-2;
+.sell-btn:hover {
+  opacity: 0.88;
 }
-.navbar{
-    position:absolute;
-    top:0;
-    left:0;
-
-    width:100%;
-
-    z-index:1000;
-
-    background:rgba(0,0,0,0.2) !important;
-
-    backdrop-filter:blur(10px);
+ 
+/* ── Hero ── */
+.hero {
+  padding: 3.5rem 2rem 2.5rem;
+  text-align: center;
 }
-.navbar-brand{
-    font-size:1.8rem;
-    font-weight:700;
-    letter-spacing:1px;
-
-    color:white !important;
+ 
+.hero-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.75rem;
+  font-weight: 500;
 }
-.navbar-nav .nav-link{
-    color:white !important;
-
-    margin-left:10px;
-    padding:8px 15px !important;
-
-    border-radius:25px;
-
-    transition:all .3s ease;
+ 
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  letter-spacing: 3px;
+  line-height: 1;
+  color: var(--text);
 }
-.navbar-nav .nav-link:hover{
-
-    background:rgba(255,255,255,0.15);
-
-    backdrop-filter:blur(10px);
-
-    transform:translateY(-2px);
-
-    color:#ffd700 !important;
+ 
+.hero h1 span {
+  color: var(--amber);
 }
-.navbar-nav .nav-link.active{
-
-    background:rgba(231, 144, 144, 0.2);
-
-    color:#ffd700 !important;
+ 
+.hero-sub {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
 }
-.navbar-brand{
-    text-shadow:
-    0 0 10px rgba(255,255,255,.5),
-    0 0 20px rgba(255,255,255,.3);
+ 
+/* ── Controls ── */
+.controls {
+  padding: 0 2rem 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
 }
-
-.cars::after{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    background:rgba(0,0,0,0.25);
-
-    z-index:-1;
+ 
+.search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
 }
-
-
-#searchInput {
-    width: 100%;
-    padding: 12px 20px;
-    border: 2px solid #ddd;
-    border-radius: 30px;
-    font-size: 16px;
-    outline: none;
-    transition: all 0.4s ease;
-    box-shadow: 0 0 0 rgba(37, 99, 235, 0);
+ 
+.search-wrap i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 15px;
 }
-
-#searchInput:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
-    transform: scale(1.03);
+ 
+.search-wrap input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  padding: 10px 14px 10px 38px;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
 }
-
-#searchInput::placeholder {
-    transition: all 0.3s ease;
+ 
+.search-wrap input:focus {
+  border-color: var(--amber);
 }
-
-#searchInput:focus::placeholder {
-    opacity: 0.5;
-    transform: translateX(10px);
+ 
+.search-wrap input::placeholder {
+  color: var(--text-muted);
 }
-.text-primary {
-    color: #f0efef !important;
+ 
+.filter-btns {
+  display: flex;
+  gap: 0.5rem;
 }
+ 
+.filter-btns button {
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+ 
+.filter-btns button:hover {
+  border-color: rgba(245, 166, 35, 0.4);
+  color: var(--text);
+}
+ 
+.filter-btns button.active {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: #0D0D0F;
+}
+ 
+/* ── Count bar ── */
+.count-bar {
+  padding: 0 2rem 1rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+ 
+.count-bar span {
+  color: var(--text);
+  font-weight: 500;
+}
+ 
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.25rem;
+  padding: 0 2rem 3rem;
+}
+ 
+/* ── Car Card ── */
+.car-card {
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+}
+ 
+.car-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(245, 166, 35, 0.35);
+}
+ 
+.car-card-img {
+  position: relative;
+  height: 175px;
+  overflow: hidden;
+  background: #111;
+}
+ 
+.car-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s;
+}
+ 
+.car-card:hover .car-card-img img {
+  transform: scale(1.06);
+}
+ 
+.type-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+ 
+.badge-new {
+  background: rgba(93, 202, 165, 0.15);
+  color: var(--green);
+  border: 1px solid rgba(93, 202, 165, 0.3);
+}
+ 
+.badge-old {
+  background: rgba(245, 166, 35, 0.12);
+  color: var(--amber);
+  border: 1px solid rgba(245, 166, 35, 0.25);
+}
+ 
+.car-card-body {
+  padding: 1rem;
+}
+ 
+.car-brand {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+}
+ 
+.car-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+ 
+.car-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 0.875rem;
+}
+ 
+.car-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+ 
+.car-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+ 
+.car-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: var(--amber);
+}
+ 
+.car-price-sub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+ 
+.view-btn {
+  background: none;
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+ 
+.view-btn:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+ 
+/* ── Empty state ── */
+.empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-muted);
+  grid-column: 1 / -1;
+}
+ 
+.empty i {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 1rem;
+  opacity: 0.3;
+}
+ 
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  nav {
+    padding: 0 1rem;
+  }
+ 
+  .hero {
+    padding: 2.5rem 1rem 2rem;
+  }
+ 
+  .controls {
+    padding: 0 1rem 1.25rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+ 
+  .filter-btns {
+    justify-content: center;
+  }
+ 
+  .grid {
+    padding: 0 1rem 2rem;
+    grid-template-columns: 1fr;
+  }
+ 
+  .count-bar {
+    padding: 0 1rem 0.75rem;
+  }
+}
+ 

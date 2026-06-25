@@ -1,101 +1,378 @@
-body{
-margin:0;
-padding:0;
-font-family:Arial, sans-serif;
-background-image:url("https://izmirautocar.com/wp-content/uploads/2025/04/Car-Dealer.jpg");
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
-background-repeat:no-repeat;
-}
-.main{
-
-backdrop-filter:blur(5px);
-
-}
-.car-image{
-
-width:100%;
-height:450px;
-
-object-fit:cover;
-
-border-radius:15px;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.spec-card{
-backdrop-filter:blur(5px);
-background:#d4eef05e;
-padding:20px;
-color:#012025;
-border-radius:15px;
-
-box-shadow:0 0 10px rgba(0,0,0,.1);
-
-margin-top:20px;
-margin-left: 12px;
+:root {
+    --amber: #F5A623;
+    --bg: #0D0D0F;
+    --surface: #16161A;
+    --surface2: #1E1E24;
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --text: #F0EEE8;
+    --text-muted: #8A8880;
+    --green: #5DCAA5;
+    --green-dim: rgba(93, 202, 165, 0.15);
+    --green-border: rgba(93, 202, 165, 0.3);
+    --amber-dim: rgba(245, 166, 35, 0.12);
+    --amber-border: rgba(245, 166, 35, 0.25);
 }
 
-.price{
-
-font-size:2rem;
-
-font-weight:bold;
-
-color:#0d6efd;
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
 }
 
-.feature{
-
-padding:8px 0;
-
-border-bottom:1px solid #eee;
-}
-.gallery-container{
-    width:100%;
-    
-}
-
-.gallery-nav{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    margin-top:15px;
+/* ── Navbar ── */
+nav {
+    background: rgba(13, 13, 15, 0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-#thumbnails{
-    display:flex;
-    gap:10px;
+.brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    color: var(--amber);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.thumb{
-    width:80px;
-    height:60px;
-    object-fit:cover;
-    cursor:pointer;
-    border-radius:8px;
-    border:3px solid transparent;
-    transition:.3s;
+.brand i {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-family: 'tabler-icons';
 }
 
-.thumb:hover{
-    transform:scale(1.05);
+.buy-btn {
+    background: var(--amber);
+    color: #0D0D0F;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: opacity 0.2s;
 }
 
-.thumb.active{
-    border-color:#0d6efd;
+.buy-btn:hover {
+    opacity: 0.88;
 }
 
-.gallery-btn{
-    border:none;
-    background:#0d6efd;
-    color:white;
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    font-size:20px;
+/* ── Page layout ── */
+.page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
 }
+
+.loading {
+    color: var(--text-muted);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+/* ── Gallery ── */
+.gallery {
+    position: sticky;
+    top: 80px;
+}
+
+.main-img-wrap {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--surface);
+    aspect-ratio: 16 / 9;
+    /* ← change from 4/3 to 16/9, or pick whatever fits your images best */
+    width: 100%;
+}
+
+.main-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* ← crops to fill, never squishes */
+    object-position: center;
+    /* ← keeps the subject centered */
+    display: block;
+    transition: opacity 0.25s;
+}
+
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(13, 13, 15, 0.7);
+    border: 1px solid var(--glass-border);
+    color: var(--text);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s;
+    z-index: 2;
+}
+
+.gallery-arrow:hover {
+    background: rgba(245, 166, 35, 0.2);
+    border-color: var(--amber-border);
+    color: var(--amber);
+}
+
+.arrow-left {
+    left: 12px;
+}
+
+.arrow-right {
+    right: 12px;
+}
+
+.img-counter {
+    position: absolute;
+    bottom: 12px;
+    right: 14px;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    background: rgba(13, 13, 15, 0.7);
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+.thumbs {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+.thumb {
+  width: 70px;
+  height: 52px;
+  object-fit: cover;       /* ← already there, but make sure this is present */
+  object-position: center;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s;
+  background: var(--surface);
+  flex-shrink: 0;          /* ← add this so thumbs don't squish on small screens */
+}
+
+.thumb:hover {
+    transform: scale(1.05);
+}
+
+.thumb.active {
+    border-color: var(--amber);
+}
+
+/* ── Info panel ── */
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.car-header {
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 1.25rem;
+}
+
+.car-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.car-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: 2px;
+    line-height: 1;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+
+.badges {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.badge {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
+.badge-new {
+    background: var(--green-dim);
+    color: var(--green);
+    border: 1px solid var(--green-border);
+}
+
+.badge-old {
+    background: var(--amber-dim);
+    color: var(--amber);
+    border: 1px solid var(--amber-border);
+}
+
+/* ── Price ── */
+.price-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
 .price {
-    color: #2c0202 !important;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem;
+    letter-spacing: 1px;
+    color: var(--amber);
+    line-height: 1;
+}
+
+.price-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+/* ── Specs grid ── */
+.specs-title {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--glass-border);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.spec-item {
+    background: var(--surface);
+    padding: 0.875rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.spec-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.spec-label i {
+    font-size: 13px;
+}
+
+.spec-value {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+/* ── CTA buttons ── */
+.cta-row {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.btn-primary-cta {
+    flex: 1;
+    background: var(--amber);
+    color: #0D0D0F;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 14px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary-cta:hover {
+    opacity: 0.88;
+}
+
+.btn-secondary-cta {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--glass-border);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    padding: 14px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-secondary-cta:hover {
+    border-color: var(--amber-border);
+    color: var(--amber);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .page {
+        grid-template-columns: 1fr;
+        padding: 1.5rem 1rem 3rem;
+        gap: 2rem;
+    }
+
+    .gallery {
+        position: static;
+    }
+
+    .cta-row {
+        flex-direction: column;
+    }
+
+    nav {
+        padding: 0 1rem;
+    }
 }

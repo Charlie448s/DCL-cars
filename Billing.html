@@ -1,311 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Billing Details</title>
-
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Arial, sans-serif;
-        }
-
-        body{
-            background:#f4f6f9;
-            padding:40px;
-        }
-
-        #mainHeading{
-            text-align:center;
-            color:#0d6efd;
-            margin-bottom:30px;
-        }
-
-        #container{
-            width:90%;
-            margin:auto;
-        }
-
-        #topSection{
-            display:flex;
-            gap:20px;
-            margin-bottom:30px;
-        }
-
-        #customerCard,
-        #carCard,
-        #priceCard,
-        #emiCard,
-        #paymentCard{
-            background:white;
-            padding:25px;
-            border-radius:15px;
-            box-shadow:0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        #customerCard,
-        #carCard{
-            flex:1;
-        }
-
-        label{
-            display:block;
-            margin-top:15px;
-            margin-bottom:5px;
-        }
-
-        input,
-        textarea{
-            width:100%;
-            padding:10px;
-            border:1px solid #ccc;
-            border-radius:5px;
-        }
-
-        table{
-            width:100%;
-            border-collapse:collapse;
-            margin-top:20px;
-        }
-
-        table td{
-            border:1px solid #ddd;
-            padding:12px;
-
-        }
-
-        #totalBox{
-            background:#0d6efd;
-            color:white;
-            text-align:center;
-            padding:20px;
-            border-radius:10px;
-            margin-top:20px;
-        }
-
-        #emiInputs{
-            display:flex;
-            gap:20px;
-            margin-top:20px;
-        }
-
-        #emiInputs div{
-            flex:1;
-        }
-
-        button{
-            padding:12px 25px;
-            border:none;
-            border-radius:5px;
-            cursor:pointer;
-            margin-top:20px;
-        }
-
-        #emiBtn{
-            background:#0d6efd;
-            color:white;
-        }
-
-        #payBtn{
-            background:green;
-            color:white;
-        }
-
-        #emiResult{
-            margin-top:20px;
-            color:#0d6efd;
-        }
-
-        .paymentOption{
-            margin-top:15px;
-        }
-
-        @media(max-width:768px){
-            #topSection{
-                flex-direction:column;
-            }
-
-            #emiInputs{
-                flex-direction:column;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Billing Details - DCLCars</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.30.0/dist/tabler-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/home.css">
+  <link rel="stylesheet" href="./css/billing.css">
 </head>
-
 <body>
+  <nav>
+    <a class="brand" href="home.html">
+      DCLCars
+    </a>
+    <div class="nav-links">
+      <a href="home.html" style="color: var(--text); text-decoration: none; font-size: 0.85rem;">Back to Home</a>
+    </div>
+  </nav>
 
-<div id="container">
-
-    <h1 id="mainHeading">Car Billing Details</h1>
-
-    <div id="topSection">
-
-        <!-- Customer Details -->
-        <div id="customerCard">
-            <h2>Customer Details</h2>
-
-            <label>Name</label>
-            <input type="text" placeholder="Enter Name">
-
-            <label>Email</label>
-            <input type="email" placeholder="Enter Email">
-
-            <label>Phone Number</label>
-            <input type="text" placeholder="Enter Phone Number">
-
-            <label>Address</label>
-            <textarea rows="4"></textarea>
-        </div>
-
-        <!-- Car Details -->
-        <div id="carCard">
-            <h2>Car Details</h2>
-
-            <p><strong>Car Name:</strong>
-                <span id="carName"></span>
-            </p>
-
-            <br>
-
-            <p><strong>Model:</strong>
-                <span id="carModel"></span>
-            </p>
-
-            <br>
-
-            <p><strong>Variant:</strong>
-                <span id="carVariant"></span>
-            </p>
-
-            <br>
-
-            <p><strong>Ex-Showroom Price:</strong>
-                ₹<span id="carPrice"></span>
-            </p>
-        </div>
-
+  <div class="page billing-page">
+    <div class="car-header">
+        <h1 class="car-title" style="font-size: 2.5rem; font-family: 'Bebas Neue', sans-serif; color: var(--text);">Billing Details</h1>
+        <p style="color: var(--text-muted);">Complete your purchase securely</p>
     </div>
 
-    <!-- Price Breakdown -->
-    <div id="priceCard">
-        <h2>Price Breakdown</h2>
-
-        <table>
-            <tr>
-                <td>Ex-Showroom Price</td>
-                <td id="showroomPrice"></td>
-            </tr>
-
-            <tr>
-                <td>Road Tax (10%)</td>
-                <td id="roadTax"></td>
-            </tr>
-
-            <tr>
-                <td>RTO Charges</td>
-                <td>₹25,000</td>
-            </tr>
-
-            <tr>
-                <td>Insurance</td>
-                <td>₹40,000</td>
-            </tr>
-
-            <tr>
-                <td>Fastag Charges</td>
-                <td>₹500</td>
-            </tr>
-
-            <tr>
-                <td>Handling Charges</td>
-                <td>₹10,000</td>
-            </tr>
-
-            <tr>
-                <td>Accessories</td>
-                <td>₹20,000</td>
-            </tr>
-        </table>
-
-        <div id="totalBox">
-            <h2>Total Amount</h2>
-            <h1 id="totalAmount"></h1>
-        </div>
-    </div>
-
-    <br>
-
-    <!-- EMI Calculator -->
-    <div id="emiCard">
-        <h2>EMI Calculator</h2>
-
-        <div id="emiInputs">
-
-            <div>
-                <label>Loan Amount</label>
-                <input type="number" id="loan">
+    <div class="billing-grid">
+        <!-- Left column: Customer & Payment -->
+        <div class="billing-col">
+            <div class="form-container">
+                <h2 class="section-title">Customer Details</h2>
+                <div class="input-group">
+                    <label>Name</label>
+                    <input type="text" placeholder="Enter Name">
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="Enter Email">
+                </div>
+                <div class="input-group">
+                    <label>Phone Number</label>
+                    <input type="text" placeholder="Enter Phone Number">
+                </div>
+                <div class="input-group">
+                    <label>Address</label>
+                    <textarea rows="3"></textarea>
+                </div>
             </div>
 
-            <div>
-                <label>Interest Rate (%)</label>
-                <input type="number" id="rate" value="9">
+            <div class="form-container" style="margin-top: 1.5rem;">
+                <h2 class="section-title">Payment Method</h2>
+                <div class="payment-options">
+                    <label class="radio-label"><input type="radio" name="payment"> Credit Card</label>
+                    <label class="radio-label"><input type="radio" name="payment"> Debit Card</label>
+                    <label class="radio-label"><input type="radio" name="payment"> UPI</label>
+                    <label class="radio-label"><input type="radio" name="payment"> Net Banking</label>
+                </div>
+                <button id="payBtn" class="btn-primary-cta" style="margin-top: 1.5rem; width: 100%;">Proceed to Payment</button>
+            </div>
+        </div>
+
+        <!-- Right column: Car Details, Price Breakdown, EMI -->
+        <div class="billing-col">
+            <div class="form-container">
+                <h2 class="section-title">Car Details</h2>
+                <div class="specs-grid" style="margin-bottom: 0;">
+                    <div class="spec-item">
+                        <span class="spec-label">Car Name</span>
+                        <span class="spec-value" id="carName"></span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Brand</span>
+                        <span class="spec-value" id="carModel"></span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Variant</span>
+                        <span class="spec-value" id="carVariant"></span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Ex-Showroom Price</span>
+                        <span class="spec-value" id="carPrice"></span>
+                    </div>
+                </div>
             </div>
 
-            <div>
-                <label>Years</label>
-                <input type="number" id="years" value="5">
+            <div class="form-container" style="margin-top: 1.5rem;">
+                <h2 class="section-title">Price Breakdown</h2>
+                <div class="price-breakdown">
+                    <div class="price-row-item"><span>Ex-Showroom Price</span><span id="showroomPrice"></span></div>
+                    <div class="price-row-item"><span>Road Tax (10%)</span><span id="roadTax"></span></div>
+                    <div class="price-row-item"><span>RTO Charges</span><span>₹25,000</span></div>
+                    <div class="price-row-item"><span>Insurance</span><span>₹40,000</span></div>
+                    <div class="price-row-item"><span>Fastag Charges</span><span>₹500</span></div>
+                    <div class="price-row-item"><span>Handling Charges</span><span>₹10,000</span></div>
+                    <div class="price-row-item"><span>Accessories</span><span>₹20,000</span></div>
+                    <div class="price-row-item total"><span>Total Amount</span><span id="totalAmount"></span></div>
+                </div>
             </div>
 
+            <div class="form-container" style="margin-top: 1.5rem;">
+                <h2 class="section-title">EMI Calculator</h2>
+                <div class="form-grid" style="grid-template-columns: 1fr 1fr 1fr; margin-bottom: 1rem;">
+                    <div class="input-group">
+                        <label>Loan Amount</label>
+                        <input type="number" id="loan">
+                    </div>
+                    <div class="input-group">
+                        <label>Rate (%)</label>
+                        <input type="number" id="rate" value="9">
+                    </div>
+                    <div class="input-group">
+                        <label>Years</label>
+                        <input type="number" id="years" value="5">
+                    </div>
+                </div>
+                <button id="emiBtn" onclick="calculateEMI()" class="btn-secondary-cta" style="width: 100%;">Calculate EMI</button>
+                <div id="emiResult" style="margin-top: 1.5rem; font-size: 1.2rem; color: var(--amber); font-weight: 600; text-align: center;"></div>
+            </div>
         </div>
-
-        <button id="emiBtn" onclick="calculateEMI()">
-            Calculate EMI
-        </button>
-
-        <h2 id="emiResult"></h2>
     </div>
+  </div>
 
-    <br>
-
-    <!-- Payment -->
-    <div id="paymentCard">
-
-        <h2>Payment Method</h2>
-
-        <div class="paymentOption">
-            <input type="radio" name="payment">
-            Credit Card
-        </div>
-
-        <div class="paymentOption">
-            <input type="radio" name="payment">
-            Debit Card
-        </div>
-
-        <div class="paymentOption">
-            <input type="radio" name="payment">
-            UPI
-        </div>
-
-        <div class="paymentOption">
-            <input type="radio" name="payment">
-            Net Banking
-        </div>
-
-        <button id="payBtn">
-            Proceed to Payment
-        </button>
-
-    </div>
-
-</div>
-
-<script src="./js/carsData.js"></script>
-<script src="./js/Billing.js"></script>
-
-
+  <script src="./js/carsData.js"></script>
+  <script src="./js/Billing.js"></script>
 </body>
 </html>

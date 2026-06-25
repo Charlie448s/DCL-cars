@@ -158,3 +158,8 @@ const cars = [
 }
 
 ];
+
+const localCars = JSON.parse(localStorage.getItem('customCars') || '[]');
+if (localCars.length > 0) {
+    cars.push(...localCars);
+}

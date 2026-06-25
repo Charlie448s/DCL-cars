@@ -1,152 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>DCLCars</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="./css/home.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DCLCars</title>
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.30.0/dist/tabler-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
-<!-- Navbar -->
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
-<div class="container">
-
-<a class="navbar-brand fw-bold" href="#">
-DCLCars
-</a>
-
-<button class="navbar-toggler"
-data-bs-toggle="collapse"
-data-bs-target="#menu">
-
-<span class="navbar-toggler-icon"></span>
-
-</button>
-
-<div class="collapse navbar-collapse" id="menu">
-
-<ul class="navbar-nav ms-auto">
-
-<li class="nav-item">
-<a class="nav-link active">Home</a>
-</li>
-
-<li class="nav-item">
-    <a
-    class="nav-link"
-    href="#"
-    onclick="filterCars('new')">
-
-    New Cars
-
-    </a>
-</li>
-
-<li class="nav-item">
-    <a
-    class="nav-link"
-    href="#"
-    onclick="filterCars('old')">
-
-    Old Cars
-
-    </a>
-</li>
-
-<li class="nav-item">
-<a class="nav-link" href="cart.html">
-Cart
-</a>
-</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</nav>
-
-<!-- Hero Section -->
-<div class="cars">
-
-<section class="hero">
-
-  <div class="container text-center">
-    
-    <h1>Find Your Dream Car</h1>
-    
-    <p>
-      Best New & Used Cars At Affordable Prices
-    </p>
-    
-  </div>
-  
-</section>
-
-<!-- Search & Filters -->
-
-<div class="container mt-5">
-
-<div class="row">
-
-<div class="col-md-6">
-
-<input
-type="text"
-id="searchInput"
-class="form-control"
-placeholder="Search Cars..."
->
-
-</div>
-
-<div class="col-md-6 text-md-end mt-3 mt-md-0">
-
-<button
-class="btn btn-primary"
-onclick="showAllCars()">All Cars</button>
-
-<button
-class="btn btn-success"
-onclick="filterCars('new')">New Cars</button>
-
-<button
-class="btn btn-warning"
-onclick="filterCars('old')">Old Cars</button>
-
-</div>
-
-</div>
-
-</div>
-
-  <!-- Cars Section -->
-  
-  <div class="container mt-5">
-    
-    <div class="row" id="carsContainer">
-      
+ 
+  <!-- Navbar -->
+  <nav>
+    <a class="brand" href="#">DCLCars</a>
+    <div class="nav-links">
+      <button class="active" onclick="setFilter('all', this)">All Cars</button>
+      <button onclick="setFilter('new', this)">New</button>
+      <button onclick="setFilter('old', this)">Pre-owned</button>
+      <a href="valuation.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem; padding: 6px 14px; font-weight: 500; font-family: 'Inter', sans-serif; transition: color 0.2s;">Check Value</a>
+      <a href="sell.html" class="sell-btn">Sell Your Car</a>
     </div>
-    
+  </nav>
+ 
+  <!-- Hero -->
+  <div class="hero">
+    <p class="hero-eyebrow">India's Premier Auto Marketplace</p>
+    <h1>Find Your<br><span>Dream Car</span></h1>
+    <p class="hero-sub">Best new &amp; used cars at unbeatable prices</p>
   </div>
+ 
+  <!-- Search & Filters -->
+  <div class="controls">
+    <div class="search-wrap">
+      <i class="ti ti-search" aria-hidden="true"></i>
+      <input type="text" id="searchInput" placeholder="Search by name, brand, fuel type…">
+    </div>
+    <div class="filter-btns">
+      <button class="active" onclick="setFilter('all', this)">All</button>
+      <button onclick="setFilter('new', this)">New</button>
+      <button onclick="setFilter('old', this)">Pre-owned</button>
+    </div>
   </div>
-  
-<script src="./js/carsData.js"></script>
-
-<script src="./js/home.js"></script>
-
+ 
+  <!-- Count Bar -->
+  <div class="count-bar" id="countBar"><span>0</span> cars available</div>
+ 
+  <!-- Cars Grid -->
+  <div class="grid" id="carsContainer"></div>
+ 
+  <script src="js/carsData.js"></script>
+  <script src="js/home.js"></script>
+ 
 </body>
-
 </html>
