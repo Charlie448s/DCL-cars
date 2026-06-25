@@ -394,4 +394,146 @@ nav {
     padding: 0 1rem 0.75rem;
   }
 }
+
+/* ── Footer ── */
+.site-footer {
+  background: var(--surface2);
+  border-top: 1px solid var(--glass-border);
+  padding: 4rem 2rem 2rem;
+  margin-top: 4rem;
+  color: var(--text-muted);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: var(--amber);
+  margin-bottom: 1rem;
+}
+
+.footer-col p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  transition: all 0.2s;
+  border: 1px solid var(--glass-border);
+}
+
+.social-links a:hover {
+  background: var(--amber);
+  color: var(--bg);
+  border-color: var(--amber);
+}
+
+.footer-col h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-col ul a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.footer-col ul a:hover {
+  color: var(--amber);
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.newsletter-form input {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--glass-border);
+  padding: 10px 14px;
+  border-radius: 6px;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  outline: none;
+}
+
+.newsletter-form input:focus {
+  border-color: var(--amber);
+}
+
+.newsletter-form button {
+  background: var(--amber);
+  color: #0D0D0F;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.newsletter-form button:hover {
+  opacity: 0.85;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--glass-border);
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 900px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
  
