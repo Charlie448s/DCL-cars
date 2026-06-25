@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Used Car Valuation - DCLCars</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.30.0/dist/tabler-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/home.css">
+  <link rel="stylesheet" href="./css/valuation.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <a class="brand" href="home.html">DCLCars</a>
+    <div class="nav-links">
+      <a href="home.html" style="color: var(--text); text-decoration: none; font-size: 0.85rem;">Back to Home</a>
+    </div>
+  </nav>
+
+  <div class="page valuation-page">
+    <div class="header-section">
+      <h1 class="page-title">Used Car Valuation</h1>
+      <p class="page-sub">AccuPrice, India's most reliable used car valuation tool, ensures you receive the most accurate and transparent quote for your vehicle.</p>
+    </div>
+
+    <div class="calculator-card">
+      <h2 class="card-title">Used Car Price Calculator</h2>
+
+      <div class="form-section">
+        <div class="toggle-group" id="roleToggle">
+          <span class="toggle-label">I am a</span>
+          <button class="pill-btn active" data-value="buyer">Buyer</button>
+          <button class="pill-btn" data-value="seller">Seller</button>
+        </div>
+
+        <div class="grid-inputs">
+          <div class="input-group">
+            <label>Manufacturing Year</label>
+            <select id="yearSelect">
+              <option value="" disabled selected>Select Year</option>
+              <!-- Populated by JS -->
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label>Car Name</label>
+            <input type="text" id="carInput" placeholder="e.g. Honda City">
+          </div>
+
+          <div class="input-group">
+            <label>Original Price (₹)</label>
+            <input type="number" id="basePriceInput" placeholder="e.g. 1500000">
+          </div>
+
+          <div class="input-group">
+            <label>Kilometers Driven</label>
+            <input type="number" id="kmsInput" placeholder="e.g. 50000">
+          </div>
+        </div>
+
+        <div class="toggle-group owner-toggle" id="ownerToggle">
+          <button class="pill-btn active" data-value="1">First owner</button>
+          <button class="pill-btn" data-value="2">Second owner</button>
+          <button class="pill-btn" data-value="3">Third owner</button>
+          <button class="pill-btn" data-value="4">Four or more</button>
+        </div>
+
+        <button class="btn-check-value" id="checkValueBtn">Check Value</button>
+      </div>
+
+      <div class="result-box" id="resultBox" style="display: none;">
+        <h3>Estimated Valuation</h3>
+        <div class="price-range" id="priceRange">₹ 0 - ₹ 0</div>
+        <p class="result-note">Prices may vary based on actual vehicle condition, local market demand, and features. Uses Machine Learning approximation algorithms based on 500,000 previous listings.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-col">
+        <h3 class="footer-brand">DCLCars</h3>
+        <p>India's Premier Auto Marketplace for new and pre-owned vehicles. Finding your dream car has never been easier.</p>
+        <div class="social-links">
+          <a href="#"><i class="ti ti-brand-facebook"></i></a>
+          <a href="#"><i class="ti ti-brand-twitter"></i></a>
+          <a href="#"><i class="ti ti-brand-instagram"></i></a>
+          <a href="#"><i class="ti ti-brand-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="sell.html">Sell Your Car</a></li>
+          <li><a href="valuation.html">Check Valuation</a></li>
+          <li><a href="home.html">Browse Cars</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p>Subscribe for the latest car offers and news.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+          <input type="email" placeholder="Email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 DCLCars. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="./js/carsData.js"></script>
+  <script src="./js/valuation.js"></script>
+</body>
+</html>

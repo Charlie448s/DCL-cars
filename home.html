@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DCLCars</title>
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.30.0/dist/tabler-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+ 
+  <!-- Navbar -->
+  <nav>
+    <a class="brand" href="#">DCLCars</a>
+    <div class="nav-links">
+      <button class="active" onclick="setFilter('all', this)">All Cars</button>
+      <button onclick="setFilter('new', this)">New</button>
+      <button onclick="setFilter('old', this)">Pre-owned</button>
+      <a href="valuation.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem; padding: 6px 14px; font-weight: 500; font-family: 'Inter', sans-serif; transition: color 0.2s;">Check Value</a>
+      <a href="sell.html" class="sell-btn">Sell Your Car</a>
+    </div>
+  </nav>
+ 
+  <!-- Hero -->
+  <div class="hero">
+    <p class="hero-eyebrow">India's Premier Auto Marketplace</p>
+    <h1>Find Your<br><span>Dream Car</span></h1>
+    <p class="hero-sub">Best new &amp; used cars at unbeatable prices</p>
+  </div>
+ 
+  <!-- Search & Filters -->
+  <div class="controls">
+    <div class="search-wrap">
+      <i class="ti ti-search" aria-hidden="true"></i>
+      <input type="text" id="searchInput" placeholder="Search by name, brand, fuel type…">
+    </div>
+    <div class="filter-btns">
+      <button class="active" onclick="setFilter('all', this)">All</button>
+      <button onclick="setFilter('new', this)">New</button>
+      <button onclick="setFilter('old', this)">Pre-owned</button>
+    </div>
+  </div>
+ 
+  <!-- Count Bar -->
+  <div class="count-bar" id="countBar"><span>0</span> cars available</div>
+ 
+  <!-- Cars Grid -->
+  <div class="grid" id="carsContainer"></div>
+ 
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-col">
+        <h3 class="footer-brand">DCLCars</h3>
+        <p>India's Premier Auto Marketplace for new and pre-owned vehicles. Finding your dream car has never been easier.</p>
+        <div class="social-links">
+          <a href="#"><i class="ti ti-brand-facebook"></i></a>
+          <a href="#"><i class="ti ti-brand-twitter"></i></a>
+          <a href="#"><i class="ti ti-brand-instagram"></i></a>
+          <a href="#"><i class="ti ti-brand-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="sell.html">Sell Your Car</a></li>
+          <li><a href="valuation.html">Check Valuation</a></li>
+          <li><a href="home.html">Browse Cars</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p>Subscribe for the latest car offers and news.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+          <input type="email" placeholder="Email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 DCLCars. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/carsData.js"></script>
+  <script src="js/home.js"></script>
+ 
+</body>
+</html>
